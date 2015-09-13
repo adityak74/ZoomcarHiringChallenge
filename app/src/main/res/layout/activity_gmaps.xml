@@ -1,0 +1,153 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="app.zmcarand.GMapsActivity">
+
+    <LinearLayout
+        android:id="@+id/head"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <ImageView
+            android:padding="5dp"
+            android:layout_weight="1"
+            android:scaleType="fitStart"
+            android:src="@drawable/logobig"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <View
+            android:layout_width="3dp"
+            android:background="#999"
+            android:layout_height="match_parent"/>
+        <Button
+            android:layout_weight="1"
+            android:id="@+id/home"
+            android:background="#00000000"
+            android:text="Booking Details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/hr"
+        android:layout_below="@+id/head"
+        android:layout_width="match_parent"
+        android:background="#111"
+        android:layout_height="1dp"/>
+
+    <LinearLayout
+        android:layout_below="@+id/hr"
+        android:orientation="vertical"
+        android:id="@+id/car_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/list_row_selector"
+            android:padding="8dp" >
+
+            <!-- Thumbnail Image -->
+            <com.android.volley.toolbox.NetworkImageView
+                android:id="@+id/thumbnail"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="8dp" />
+
+            <!-- Car Title -->
+            <TextView
+                android:id="@+id/title"
+                android:text="Mecedes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/thumbnail"
+                android:layout_toRightOf="@+id/thumbnail"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <!-- Rating -->
+            <TextView
+                android:id="@+id/rating"
+                android:text="Rating : 4"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title"
+                android:layout_marginTop="1dip"
+                android:layout_toRightOf="@+id/thumbnail"
+                android:textSize="@dimen/rating" />
+
+            <!-- Genre -->
+            <TextView
+                android:text="1360 per hr"
+                android:id="@+id/hourlyrate"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rating"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@+id/thumbnail"
+                android:textColor="#add836"
+                android:textSize="@dimen/genre" />
+
+            <TextView
+                android:text="Seater : 4+1"
+                android:textStyle="bold"
+                android:id="@+id/seater"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/hourlyrate"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@+id/thumbnail"
+                android:textColor="@color/genre"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/ac"
+
+                android:text="AC : Yes"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/seater"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@+id/thumbnail"
+                android:textColor="#add8e6"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/hr1"
+        android:layout_below="@+id/car_details"
+        android:layout_width="match_parent"
+        android:background="#111"
+        android:layout_height="1dp"/>
+
+    <TextView
+        android:layout_below="@+id/hr1"
+        android:id="@+id/cl"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Car Location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:id="@+id/hr2"
+        android:layout_below="@+id/cl"
+        android:layout_width="match_parent"
+        android:background="#111"
+        android:layout_height="1dp"/>
+
+    <fragment
+        android:layout_below="@+id/hr2"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.MapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</RelativeLayout>
